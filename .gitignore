@@ -1,3 +1,6 @@
 .gradle
+/venv
 .env
-venv
+.env.example
+/apartment_lottery_faq_chatbot-main
+/data
