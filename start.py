@@ -142,16 +142,12 @@ def main():
     # st.text(dotenv_values(".env"))
     # st.text("셋팅완료")
 
-    pdf_doc = st.file_uploader("PDF Uploader", type="pdf")
-    button = st.button("PDF 업로드하기")
-    if pdf_doc and button :
-        with st.spinner("Saving pdf document"):
-            st.text("여기까지 완성")
-            pdf_path = save_uploadedfile(pdf_doc)
-            pdf_document = pdf_to_documents(pdf_path)
-            smaller_document = chunk_documents(pdf_document)
-            save_to_vector_store(smaller_document)
+    user_question = st.text_input("강릉원주대학교에 대해 질문해주세요", placeholder="강릉캠퍼스 주소 알려주세요.")
 
-
+    if user_question:
+        response, context = process_question(user_question)
+        st.text(response)
+        
+    
 if __name__ == "__main__":
     main()
