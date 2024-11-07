@@ -13,6 +13,9 @@ from langchain.prompts import PromptTemplate
 from langchain_core.runnables import Runnable
 from langchain.schema.output_parser import StrOutputParser
 from langchain_community.document_loaders import PyMuPDFLoader
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import CharacterTextSplitter
+
 from typing import List
 import os
 import fitz  # PyMuPDF
