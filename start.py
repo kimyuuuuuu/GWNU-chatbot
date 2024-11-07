@@ -24,7 +24,7 @@ load_dotenv()
 
 
 
-############################### 1단계 : PDF 문서를 벡터DB에 저장하는 함수들 ##########################
+############## 1단계 : PDF 문서를 벡터DB에 저장하는 함수들 ###################
 
 ## 1: 임시폴더에 파일 저장
 def save_uploadedfile(uploadedfile: UploadedFile) -> str : 
@@ -59,7 +59,7 @@ def save_to_vector_store(documents: List[Document]) -> None:
 
 
 
-############################### 2단계 : RAG 기능 구현과 관련된 함수들 ##########################
+##################### 2단계 : RAG 기능 구현과 관련된 함수들 #################
 
 
 ## 사용자 질문에 대한 RAG 처리
@@ -106,7 +106,7 @@ def get_rag_chain() -> Runnable:
 
 
 
-############################### 3단계 : 응답결과와 문서를 함께 보도록 도와주는 함수 ##########################
+################## 3단계 : 응답결과와 문서를 함께 보도록 도와주는 함수 #######
 @st.cache_data(show_spinner=False)
 def convert_pdf_to_images(pdf_path: str, dpi: int = 250) -> List[str]:
     doc = fitz.open(pdf_path)  # 문서 열기
@@ -147,7 +147,7 @@ def main():
     if user_question:
         response, context = process_question(user_question)
         st.text(response)
-        
+
     
 if __name__ == "__main__":
     main()
